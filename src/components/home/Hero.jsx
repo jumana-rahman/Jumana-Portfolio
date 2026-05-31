@@ -46,7 +46,7 @@ export default function Hero() {
             I build modern, fast, and responsive web applications with clean UI and strong user experience.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 mt-6 text-gray-300">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-6 text-gray-300">
 
             <FaHtml5
                 size={30}
