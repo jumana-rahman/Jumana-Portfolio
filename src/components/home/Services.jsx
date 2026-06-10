@@ -6,7 +6,12 @@ import {
   FaPaintBrush,
 } from "react-icons/fa";
 
-export default function Services() {
+export default function Services({ theme }) {
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const secondaryText = theme === "dark" ? "text-gray-400" : "text-gray-600";
+  const cardBg = theme === "dark" ? "bg-black/40" : "bg-white";
+  const cardBorder = theme === "dark" ? "border-purple-500/20" : "border-purple-200";
+
   const services = [
     {
       icon: <FaCode size={42} />,
@@ -36,7 +41,11 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-black min-h-screen px-6 py-14 relative overflow-hidden"
+      className={`min-h-screen px-6 py-14 relative overflow-hidden ${
+        theme === "dark"
+      ? "bg-black text-white"
+      : "bg-slate-200 text-slate-900"
+      }`}
     >
       {/* 💜 Background Glow */}
       <div className="absolute top-20 right-0 w-100 h-100 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
@@ -51,11 +60,11 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className={`text-4xl md:text-5xl font-bold ${textColor}`}>
             My <span className="text-purple-400">Services</span>
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className={`mt-4 max-w-2xl mx-auto ${secondaryText}`}>
             I provide modern web solutions with clean UI, responsive layouts
             and scalable backend functionality.
           </p>
@@ -71,7 +80,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.15 }}
               viewport={{ once: true }}
-              className="group relative bg-black/40 border border-purple-500/20 rounded-2xl p-8 backdrop-blur-md overflow-hidden hover:-translate-y-2 hover:shadow-[0_0_35px_#a855f7] transition duration-300"
+              className={`group relative ${cardBg} border ${cardBorder} rounded-2xl p-8 backdrop-blur-md overflow-hidden hover:-translate-y-2 hover:shadow-[0_0_35px_#a855f7] transition duration-300`}
             >
               {/* Glow Effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-purple-500/5"></div>
@@ -82,17 +91,17 @@ export default function Services() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-2xl font-semibold text-white mb-3 relative z-10">
+              <h3 className={`text-2xl font-semibold ${textColor} mb-3 relative z-10`}>
                 {service.title}
               </h3>
 
               {/* TOOLS */}
-              <div className="inline-block px-3 py-1 rounded-full border border-purple-500/30 text-purple-300 text-sm mb-4 relative z-10">
+              <div className={`inline-block px-3 py-1 rounded-full border border-purple-500/30 ${textColor} text-sm mb-4 relative z-10`}>
                 {service.tools}
               </div>
 
               {/* DESCRIPTION */}
-              <p className="text-gray-400 leading-relaxed relative z-10">
+              <p className={`leading-relaxed relative z-10 ${secondaryText}`}>
                 {service.description}
               </p>
 

@@ -1,4 +1,5 @@
 
+import { useState } from 'react'
 import './App.css'
 import About from './components/home/About'
 import Hero from './components/home/Hero'
@@ -10,21 +11,23 @@ import Navbar from './components/shared/Navbar'
 
 function App() {
 
+  const [theme, setTheme] = useState("dark");
+
   return (
     <div className="bg-black text-white min-h-screen">
-      <Navbar />
+      <Navbar theme={theme} setTheme={setTheme}/>
 
-      <Hero/>
+      <Hero theme={theme}/>
 
-      <About/>
+      <About theme={theme}/>
 
-      <Skills/>
+      <Skills theme={theme}/>
 
-      <Services/>
+      <Services theme={theme}/>
 
-      <Projects/>
+      <Projects theme={theme}/>
 
-      <Footer/>
+      <Footer theme={theme}/>
 
     </div>
   )

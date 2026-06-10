@@ -18,7 +18,12 @@ import {
   SiJavascript,
 } from "react-icons/si";
 
-export default function Projects() {
+export default function Projects({ theme }) {
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const secondaryText = theme === "dark" ? "text-gray-400" : "text-gray-600";
+  const cardBg = theme === "dark" ? "bg-black/40" : "bg-white";
+  const cardBorder = theme === "dark" ? "border-purple-500/20" : "border-purple-200";
+
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = [
@@ -126,10 +131,14 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-black min-h-screen px-6 py-14 relative overflow-hidden"
+      className= {`min-h-screen px-6 py-14 relative overflow-hidden ${
+        theme === "dark"
+      ? "bg-black text-white"
+      : "bg-slate-100 text-slate-900"
+      }`}
     >
       {/* 💜 Background Glow */}
-      <div className="absolute bottom-0 left-0 w-112.5 h-112.5 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className={`absolute bottom-0 left-0 w-112.5 h-112.5  rounded-full blur-3xl animate-pulse ${theme === "dark" ? "bg-purple-600/10" : "bg-purple-500/20"}`}></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
 
@@ -141,11 +150,11 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className={`text-4xl md:text-5xl font-bold ${textColor}`}>
             My <span className="text-purple-400">Projects</span>
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className={`mt-4 max-w-2xl mx-auto ${secondaryText}`}>
             Some of my featured works showcasing frontend, full-stack and
             responsive web development projects.
           </p>
@@ -159,13 +168,14 @@ export default function Projects() {
               key={i}
               onClick={() => setActiveCategory(category)}
               className={`px-5 py-2 rounded-full border transition duration-300
-              
-              ${
-                activeCategory === category
-                  ? "bg-purple-500 text-black border-purple-500 shadow-[0_0_15px_#a855f7]"
-                  : "border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-black"
-              }`}
-            >
+                ${
+                  activeCategory === category
+                    ? "bg-purple-500 text-black border-purple-500 shadow-[0_0_15px_#a855f7]"
+                    : theme === "dark"
+                      ? "border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-black"
+                      : "border-purple-400 text-purple-700 hover:bg-purple-500 hover:text-white"
+                }`}
+              >
               {category}
             </button>
           ))}
@@ -182,7 +192,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.12 }}
               viewport={{ once: true }}
-              className="bg-black/40 border border-purple-500/20 rounded-2xl overflow-hidden backdrop-blur-md hover:-translate-y-2 hover:shadow-[0_0_35px_#a855f7] transition duration-300"
+              className={`${cardBg} border ${cardBorder} rounded-2xl overflow-hidden backdrop-blur-md hover:-translate-y-2 hover:shadow-[0_0_35px_#a855f7] transition duration-300`}
             >
               {/* PROJECT IMAGE */}
               <div className="overflow-hidden">
@@ -197,12 +207,12 @@ export default function Projects() {
               <div className="p-6">
 
                 {/* TITLE */}
-                <h3 className="text-2xl font-semibold text-white mb-3">
+                <h3 className={`text-2xl font-semibold ${textColor} mb-3`}>
                   {project.title}
                 </h3>
 
                 {/* DESCRIPTION */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                <p className={`${secondaryText} text-sm leading-relaxed mb-5`}>
                   {project.description}
                 </p>
 
@@ -234,10 +244,15 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-black transition"
-                  >
-                    <FaGithub />
-                    Github
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition
+                      ${
+                        theme === "dark"
+                          ? "border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-black"
+                          : "border-purple-400 text-purple-700 hover:bg-purple-500 hover:text-white"
+                      }`}
+                    >
+                      <FaGithub />
+                      Github
                   </a>
 
                 </div>

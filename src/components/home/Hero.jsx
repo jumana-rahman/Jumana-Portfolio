@@ -3,11 +3,15 @@ import { Typewriter } from "react-simple-typewriter";
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
-export default function Hero() {
+export default function Hero({ theme }) {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center bg-black relative overflow-hidden px-6"
+      className={`min-h-screen flex items-center relative overflow-hidden px-6 ${
+    theme === "dark"
+  ? "bg-black text-white"
+  : "bg-slate-100 text-slate-900"
+  }`}
     >
       {/* 🌌 Background glow blobs */}
       <div className="absolute w-72 h-72 bg-purple-600/20 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
@@ -22,7 +26,9 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center md:text-left"
         >
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className={`text-4xl md:text-5xl font-bold ${
+              theme === "dark" ? "text-white" : "text-black"
+            }`}>
                 Hi, I am{" "}
                 {/* <span className="text-purple-400"></span>{" "} */}
                 <span className="text-purple-400">
@@ -42,7 +48,7 @@ export default function Hero() {
                 </span>
             </h1>
 
-          <p className="text-gray-400 mt-8 max-w-md">
+          <p className={`mt-8 max-w-md ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
             I build modern, fast, and responsive web applications with clean UI and strong user experience.
           </p>
 
@@ -70,7 +76,9 @@ export default function Hero() {
 
             <SiNextdotjs
                 size={30}
-                className="text-white transition hover:scale-110"
+                className={`transition hover:scale-110 ${
+              theme === "dark" ? "text-white" : "text-black"
+            }`}
             />
 
             <FaNodeJs

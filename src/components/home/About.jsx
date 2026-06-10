@@ -1,10 +1,18 @@
 import { motion } from "framer-motion";
 
-export default function About() {
+export default function About({ theme }) {
+
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const secondaryText = theme === "dark" ? "text-gray-400" : "text-gray-600";
+
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center bg-black px-6 py-14 relative overflow-hidden"
+      className={`min-h-screen flex items-center px-6 py-14 relative overflow-hidden ${
+        theme === "dark"
+      ? "bg-black text-white"
+      : "bg-slate-200 text-slate-900"
+      }`}
     >
       {/* 💜 LEFT GLOW BACKGROUND */}
       <div className="absolute w-100 h-100 bg-purple-600/20 rounded-full blur-3xl top-1/2 left-10 -translate-y-1/2 animate-pulse"></div>
@@ -18,17 +26,19 @@ export default function About() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className={`text-3xl md:text-4xl font-bold ${
+              textColor
+            }`}>
             About <span className="text-purple-400">Me</span>
           </h2>
 
-          <p className="text-gray-400 mt-6 leading-relaxed">
+          <p className={`${secondaryText} mt-6 leading-relaxed`}>
             I am a passionate MERN Stack Developer who enjoys building modern,
             responsive and user-friendly web applications. I focus on clean UI,
             smooth experience, and performance.
           </p>
 
-          <p className="text-gray-400 mt-4 leading-relaxed">
+          <p className={`${secondaryText} mt-4 leading-relaxed`}>
             I love turning ideas into real-world projects using modern web technologies.
           </p>
 
@@ -37,7 +47,12 @@ export default function About() {
             {["React", "Tailwind", "JavaScript", "UI Design"].map((skill, i) => (
               <span
                 key={i}
-                className="px-3 py-1 border border-purple-500/30 text-purple-300 rounded-full text-sm hover:bg-purple-500/10 transition"
+                className={`px-3 py-1 border rounded-full text-sm transition
+                ${
+                  theme === "dark"
+                    ? "border-purple-500/30 text-purple-300 hover:bg-purple-500/10"
+                    : "border-purple-600/40 text-purple-700 bg-purple-100 hover:bg-purple-200"
+                }`}
               >
                 {skill}
               </span>
@@ -46,7 +61,9 @@ export default function About() {
 
           {/* EDUCATION */}
           <div className="mt-10">
-            <h3 className="text-xl font-semibold text-white mb-4">
+            <h3 className={`text-xl font-semibold mb-4 ${
+              textColor
+            }`}>
               Education
             </h3>
 
@@ -59,10 +76,12 @@ export default function About() {
                 viewport={{ once: true }}
                 className="border-l-2 border-purple-500 pl-4"
               >
-                <h4 className="text-white font-medium">
+                <h4 className={`font-medium ${
+                  textColor
+                }`}>
                   BSc in Computer Science & Engineering
                 </h4>
-                <p className="text-gray-400 text-sm">
+                <p className={`text-gray-400 text-sm ${secondaryText}`}>
                   October, 2021 - Present
                 </p>
               </motion.div>
@@ -74,10 +93,12 @@ export default function About() {
                 viewport={{ once: true }}
                 className="border-l-2 border-purple-500 pl-4"
               >
-                <h4 className="text-white font-medium">
+                <h4 className={`font-medium ${
+                  textColor
+                }`}>
                   Higher Secondary Certificate (HSC)
                 </h4>
-                <p className="text-gray-400 text-sm">
+                <p className={`text-gray-400 text-sm ${secondaryText}`}>
                   Passing year: 2019
                 </p>
               </motion.div>
@@ -94,7 +115,6 @@ export default function About() {
           viewport={{ once: true }}
           className="grid grid-cols-2 gap-6"
         >
-
           {[
             { value: "2+", label: "Years Learning" },
             { value: "10+", label: "Projects" },
@@ -107,17 +127,36 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.15 }}
               viewport={{ once: true }}
-              className="bg-black/40 border border-purple-500/20 rounded-xl p-6 text-center hover:shadow-[0_0_25px_#a855f7] transition flex flex-col items-center justify-center"
+              className={`
+                rounded-xl p-6 text-center flex flex-col items-center justify-center
+                border border-purple-500/20
+                hover:shadow-[0_0_25px_#a855f7]
+                transition
+
+                ${
+                  theme === "dark"
+                    ? "bg-black/40"
+                    : "bg-white border-purple-300 shadow-lg"
+                }
+              `}
             >
               <div>
                 <h3 className="text-3xl font-bold text-purple-400">
-                    {item.value}
+                  {item.value}
                 </h3>
-                <p className="text-gray-400 mt-2">{item.label}</p>
+
+                <p
+                  className={`mt-2 ${
+                    theme === "dark"
+                      ? "text-gray-400"
+                      : "text-gray-700"
+                  }`}
+                >
+                  {item.label}
+                </p>
               </div>
             </motion.div>
           ))}
-
         </motion.div>
       </div>
     </section>

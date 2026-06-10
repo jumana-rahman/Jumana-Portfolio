@@ -1,14 +1,27 @@
 import { FaGithub, FaLinkedin, FaSnapchatGhost, FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-export default function Footer() {
+export default function Footer({ theme }) {
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const secondaryText = theme === "dark" ? "text-gray-400" : "text-gray-600";
+  const cardBg = theme === "dark" ? "bg-black/40" : "bg-white";
+  const cardBorder = theme === "dark" ? "border-purple-500/20" : "border-purple-200";
+
   return (
     <footer
       id="contact"
-      className="bg-black relative px-6 pt-14 pb-6 overflow-hidden border-t border-purple-500/20"
+      className={`relative px-6 pt-14 pb-6 overflow-hidden border-t border-purple-500/20 ${
+        theme === "dark"
+          ? "bg-black text-white"
+          : "bg-slate-200 text-slate-900"
+      }`}
     >
       {/* 💜 Background glow */}
-      <div className="absolute w-100 h-100 bg-purple-600/10 rounded-full blur-3xl bottom-0 right-10 animate-pulse"></div>
+      <div
+        className={`absolute w-100 h-100 rounded-full blur-3xl bottom-0 right-10 animate-pulse ${
+          theme === "dark" ? "bg-purple-600/10" : "bg-purple-400/20"
+        }`}
+      ></div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
 
@@ -19,20 +32,20 @@ export default function Footer() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className={`text-2xl font-bold mb-6 ${textColor}`}>
             Contact <span className="text-purple-400">Me</span>
           </h2>
 
-          <div className="space-y-4 text-gray-400">
+          <div className={secondaryText + " space-y-4"}>
 
             <div className="flex items-center gap-3">
               <FaEnvelope className="text-purple-400" />
-              <span>jumana.rahman001@gmail.com</span>
+              <span className={textColor}>jumana.rahman001@gmail.com</span>
             </div>
 
             <div className="flex items-center gap-3">
               <FaPhone className="text-purple-400" />
-              <span>+880 1318578173</span>
+              <span className={textColor}>+880 1318578173</span>
             </div>
 
           </div>
@@ -45,11 +58,11 @@ export default function Footer() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className={`text-2xl font-bold mb-6 ${textColor}`}>
             Social <span className="text-purple-400">Links</span>
           </h2>
 
-          <div className="flex flex-col gap-4 text-gray-400">
+          <div className={`flex flex-col gap-4 ${secondaryText}`}>
 
             <a
               href="https://github.com/jumana-rahman"
@@ -85,7 +98,7 @@ export default function Footer() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-bold text-white mb-6">
+          <h2 className={`text-2xl font-bold mb-6 ${textColor}`}>
             Send <span className="text-purple-400">Message</span>
           </h2>
 
@@ -94,19 +107,31 @@ export default function Footer() {
             <input
               type="text"
               placeholder="Your Name"
-              className="bg-black/40 border border-purple-500/20 p-3 rounded-lg text-white outline-none focus:border-purple-500"
+              className={`${cardBg} ${cardBorder} p-3 rounded-lg outline-none focus:border-purple-500 ${
+                  theme === "dark"
+                    ? "text-white placeholder-gray-400"
+                    : "text-black placeholder-gray-500"
+              }`}
             />
 
             <input
               type="email"
               placeholder="Your Email"
-              className="bg-black/40 border border-purple-500/20 p-3 rounded-lg text-white outline-none focus:border-purple-500"
+              className={`${cardBg} ${cardBorder} p-3 rounded-lg outline-none focus:border-purple-500 ${
+                theme === "dark"
+                  ? "text-white placeholder-gray-400"
+                  : "text-black placeholder-gray-500"
+              }`}
             />
 
             <textarea
               placeholder="Your Message"
               rows="4"
-              className="bg-black/40 border border-purple-500/20 p-3 rounded-lg text-white outline-none focus:border-purple-500"
+              className={`${cardBg} ${cardBorder} p-3 rounded-lg outline-none focus:border-purple-500 ${
+                theme === "dark"
+                  ? "text-white placeholder-gray-400"
+                  : "text-black placeholder-gray-500"
+              }`}
             ></textarea>
 
             <button
@@ -122,7 +147,7 @@ export default function Footer() {
       </div>
 
       {/* 🔻 Bottom Text */}
-      <div className="text-center text-gray-500 mt-16 text-sm">
+      <div className={`text-center mt-16 text-sm ${secondaryText}`}>
         © {new Date().getFullYear()} Your Name. All rights reserved.
       </div>
     </footer>

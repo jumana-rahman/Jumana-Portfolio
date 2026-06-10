@@ -12,7 +12,13 @@ import {
   SiMongodb,
 } from "react-icons/si";
 
-export default function Skills() {
+export default function Skills({ theme }) {
+
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const secondaryText = theme === "dark" ? "text-gray-400" : "text-gray-600";
+  const cardBg = theme === "dark" ? "bg-black/40" : "bg-white";
+  const cardBorder = theme === "dark" ? "border-purple-500/20" : "border-purple-200";
+
   const skills = [
     {
       icon: <FaHtml5 size={42} />,
@@ -61,7 +67,11 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="bg-black min-h-screen px-6 py-14 relative overflow-hidden"
+      className={`min-h-screen px-6 py-14 relative overflow-hidden ${
+        theme === "dark"
+      ? "bg-black text-white"
+      : "bg-slate-100 text-slate-900"
+      }`}
     >
       {/* 💜 Background Glow */}
       <div className="absolute top-20 left-1/2 -translate-x-1/2 w-112.5 h-112.5 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
@@ -76,11 +86,11 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className={`text-4xl md:text-5xl font-bold ${textColor}`}>
             My <span className="text-purple-400">Skills</span>
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className={`mt-4 max-w-2xl mx-auto ${secondaryText}`}>
             Technologies and tools I use to build modern, responsive and
             user-friendly web applications.
           </p>
@@ -96,7 +106,15 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.12 }}
               viewport={{ once: true }}
-              className="bg-black/40 border border-purple-500/20 rounded-2xl p-8 backdrop-blur-md hover:shadow-[0_0_30px_#a855f7] hover:-translate-y-2 transition duration-300"
+              className={`
+                border
+                ${cardBg}
+                ${cardBorder}
+                rounded-2xl p-8 backdrop-blur-md
+                hover:shadow-[0_0_30px_#a855f7]
+                hover:-translate-y-2
+                transition duration-300
+              `}
             >
               {/* ICON */}
               <div className="text-purple-400 mb-5">
@@ -104,12 +122,12 @@ export default function Skills() {
               </div>
 
               {/* TITLE */}
-              <h3 className="text-2xl font-semibold text-white mb-3">
+              <h3 className={`text-2xl font-semibold ${textColor} mb-3`}>
                 {skill.title}
               </h3>
 
               {/* DESCRIPTION */}
-              <p className="text-gray-400 leading-relaxed text-sm">
+              <p className={`${secondaryText} leading-relaxed text-sm`}>
                 {skill.description}
               </p>
             </motion.div>
