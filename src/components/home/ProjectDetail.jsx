@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
@@ -35,16 +36,26 @@ export default function ProjectDetail() {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
 
-  const textColor = "text-white";
-  const secondaryText = "text-gray-400";
-  const cardBg = "bg-black/40";
-  const cardBorder = "border-purple-500/20";
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+
+  useEffect(() => {
+    const handleStorage = () => setTheme(localStorage.getItem("theme") || "dark");
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
+  }, []);
+
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+  const secondaryText = theme === "dark" ? "text-gray-400" : "text-gray-600";
+  const cardBg = theme === "dark" ? "bg-black/40" : "bg-white";
+  const cardBorder = theme === "dark" ? "border-purple-500/20" : "border-purple-200";
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
+      <div className={`min-h-screen flex flex-col items-center justify-center px-6 ${
+        theme === "dark" ? "bg-black text-white" : "bg-slate-100 text-slate-900"
+      }`}>
         <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-        <p className="text-gray-400 mb-8">
+        <p className={`mb-8 ${secondaryText}`}>
           The project you are looking for does not exist.
         </p>
         <Link
@@ -59,7 +70,9 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <div className={`min-h-screen relative overflow-hidden ${
+      theme === "dark" ? "bg-black text-white" : "bg-slate-100 text-slate-900"
+    }`}>
       {/* Background glow */}
       <div className="absolute w-96 h-96 bg-purple-600/10 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
       <div className="absolute w-96 h-96 bg-purple-800/10 rounded-full blur-3xl bottom-10 right-10 animate-pulse"></div>
@@ -86,7 +99,7 @@ export default function ProjectDetail() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="rounded-2xl overflow-hidden border border-purple-500/20 mb-10"
+          className={`rounded-2xl overflow-hidden border ${cardBorder} mb-10`}
         >
           <img
             src={project.image}
@@ -165,7 +178,11 @@ export default function ProjectDetail() {
             target="_blank"
             rel="noreferrer"
             className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition
-              border-purple-500/30 text-purple-300 hover:bg-purple-500 hover:text-black
+              ${cardBorder} ${
+                theme === "dark"
+                  ? "text-purple-300 hover:bg-purple-500 hover:text-black"
+                  : "text-purple-700 hover:bg-purple-500 hover:text-white"
+              }
             `}
           >
             <FaGithub />
