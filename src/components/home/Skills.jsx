@@ -1,16 +1,4 @@
 import { motion } from "framer-motion";
-import {
-  FaHtml5,
-  FaReact,
-  FaNodeJs,
-} from "react-icons/fa";
-
-import {
-  SiTailwindcss,
-  SiNextdotjs,
-  SiExpress,
-  SiMongodb,
-} from "react-icons/si";
 
 export default function Skills({ theme }) {
 
@@ -18,49 +6,35 @@ export default function Skills({ theme }) {
   const secondaryText = theme === "dark" ? "text-gray-400" : "text-gray-600";
   const cardBg = theme === "dark" ? "bg-black/40" : "bg-white";
   const cardBorder = theme === "dark" ? "border-purple-500/20" : "border-purple-200";
+  const barBg = theme === "dark" ? "bg-gray-700" : "bg-gray-300";
 
-  const skills = [
+  const categories = [
     {
-      icon: <FaHtml5 size={42} />,
-      title: "HTML5",
-      description:
-        "Building clean, semantic and responsive website structures.",
+      name: "Frontend",
+      skills: [
+        { name: "HTML5", level: 95 },
+        { name: "CSS3 / Tailwind CSS", level: 90 },
+        { name: "JavaScript", level: 85 },
+        { name: "React JS", level: 88 },
+        { name: "Next JS", level: 80 },
+      ],
     },
     {
-      icon: <SiTailwindcss size={42} />,
-      title: "Tailwind CSS",
-      description:
-        "Creating modern UI with utility-first responsive styling.",
+      name: "Backend",
+      skills: [
+        { name: "Node JS", level: 78 },
+        { name: "Express JS", level: 75 },
+        { name: "MongoDB", level: 72 },
+      ],
     },
     {
-      icon: <FaReact size={42} />,
-      title: "React JS",
-      description:
-        "Developing interactive and component-based frontend applications.",
-    },
-    {
-      icon: <FaNodeJs size={42} />,
-      title: "Node JS",
-      description:
-        "Building fast and scalable backend applications with JavaScript.",
-    },
-    {
-      icon: <SiNextdotjs size={42} />,
-      title: "Next JS",
-      description:
-        "Creating optimized full-stack and SEO-friendly web applications.",
-    },
-    {
-      icon: <SiExpress size={42} />,
-      title: "Express JS",
-      description:
-        "Developing REST APIs and backend services efficiently.",
-    },
-    {
-      icon: <SiMongodb size={42} />,
-      title: "MongoDB",
-      description:
-        "Managing NoSQL databases for dynamic web applications.",
+      name: "Tools",
+      skills: [
+        { name: "Git & GitHub", level: 82 },
+        { name: "Figma", level: 70 },
+        { name: "VS Code", level: 90 },
+        { name: "Vercel / Netlify", level: 75 },
+      ],
     },
   ];
 
@@ -73,7 +47,6 @@ export default function Skills({ theme }) {
       : "bg-slate-100 text-slate-900"
       }`}
     >
-      {/* 💜 Background Glow */}
       <div className="absolute top-20 left-1/2 -translate-x-1/2 w-112.5 h-112.5 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -96,40 +69,51 @@ export default function Skills({ theme }) {
           </p>
         </motion.div>
 
-        {/* SKILLS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* SKILL CATEGORIES */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {skills.map((skill, i) => (
+          {categories.map((category, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.12 }}
+              transition={{ delay: i * 0.15 }}
               viewport={{ once: true }}
               className={`
-                border
-                ${cardBg}
-                ${cardBorder}
-                rounded-2xl p-8 backdrop-blur-md
+                border ${cardBg} ${cardBorder} rounded-2xl p-8 backdrop-blur-md
                 hover:shadow-[0_0_30px_#a855f7]
                 hover:-translate-y-2
                 transition duration-300
               `}
             >
-              {/* ICON */}
-              <div className="text-purple-400 mb-5">
-                {skill.icon}
-              </div>
-
-              {/* TITLE */}
-              <h3 className={`text-2xl font-semibold ${textColor} mb-3`}>
-                {skill.title}
+              <h3 className={`text-2xl font-semibold ${textColor} mb-6`}>
+                {category.name}
               </h3>
 
-              {/* DESCRIPTION */}
-              <p className={`${secondaryText} leading-relaxed text-sm`}>
-                {skill.description}
-              </p>
+              <div className="space-y-5">
+                {category.skills.map((skill, j) => (
+                  <div key={j}>
+                    <div className="flex justify-between mb-1">
+                      <span className={`text-sm font-medium ${textColor}`}>
+                        {skill.name}
+                      </span>
+                      <span className={`text-sm ${secondaryText}`}>
+                        {skill.level}%
+                      </span>
+                    </div>
+
+                    <div className={`w-full h-2.5 ${barBg} rounded-full overflow-hidden`}>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        transition={{ duration: 1, delay: j * 0.1 }}
+                        viewport={{ once: true }}
+                        className="h-full bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"
+                      ></motion.div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           ))}
 

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
 export default function Hero({ theme }) {
@@ -13,9 +13,34 @@ export default function Hero({ theme }) {
   : "bg-slate-100 text-slate-900"
   }`}
     >
-      {/* 🌌 Background glow blobs */}
+      {/* Background glow blobs */}
       <div className="absolute w-72 h-72 bg-purple-600/20 rounded-full blur-3xl top-10 left-10 animate-pulse"></div>
       <div className="absolute w-72 h-72 bg-purple-800/20 rounded-full blur-3xl bottom-10 right-10 animate-pulse"></div>
+
+      {/* Social Links - Vertical (desktop only) */}
+      <div className="hidden lg:flex absolute left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-5 z-20">
+        <a
+          href="https://github.com/jumana-rahman"
+          target="_blank"
+          rel="noreferrer"
+          className={`text-purple-400 hover:scale-125 hover:drop-shadow-[0_0_10px_#a855f7] transition duration-300`}
+        >
+          <FaGithub size={22} />
+        </a>
+
+        <div className="w-px h-12 bg-purple-500/40"></div>
+
+        <a
+          href="https://linkedin.com/in/jumana-bint-rahman"
+          target="_blank"
+          rel="noreferrer"
+          className={`text-purple-400 hover:scale-125 hover:drop-shadow-[0_0_10px_#a855f7] transition duration-300`}
+        >
+          <FaLinkedin size={22} />
+        </a>
+
+        <div className="w-px h-12 bg-purple-500/40"></div>
+      </div>
 
       <div className="max-w-6xl w-full mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 z-10">
 
@@ -30,7 +55,6 @@ export default function Hero({ theme }) {
               theme === "dark" ? "text-white" : "text-black"
             }`}>
                 Hi, I am{" "}
-                {/* <span className="text-purple-400"></span>{" "} */}
                 <span className="text-purple-400">
                     <Typewriter
                     words={[

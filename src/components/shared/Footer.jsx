@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaSnapchatGhost, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Footer({ theme }) {
@@ -16,7 +16,6 @@ export default function Footer({ theme }) {
           : "bg-slate-200 text-slate-900"
       }`}
     >
-      {/* 💜 Background glow */}
       <div
         className={`absolute w-100 h-100 rounded-full blur-3xl bottom-0 right-10 animate-pulse ${
           theme === "dark" ? "bg-purple-600/10" : "bg-purple-400/20"
@@ -25,7 +24,7 @@ export default function Footer({ theme }) {
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
 
-        {/* 📞 CONTACT INFO */}
+        {/* CONTACT INFO */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -51,7 +50,7 @@ export default function Footer({ theme }) {
           </div>
         </motion.div>
 
-        {/* 🌐 SOCIAL LINKS */}
+        {/* SOCIAL LINKS */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,6 +65,8 @@ export default function Footer({ theme }) {
 
             <a
               href="https://github.com/jumana-rahman"
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-3 hover:text-purple-400 transition"
             >
               <FaGithub />
@@ -74,24 +75,18 @@ export default function Footer({ theme }) {
 
             <a
               href="https://linkedin.com/in/jumana-bint-rahman"
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-3 hover:text-purple-400 transition"
             >
               <FaLinkedin />
               LinkedIn
             </a>
 
-            <a
-              href="#"
-              className="flex items-center gap-3 hover:text-purple-400 transition"
-            >
-              <FaSnapchatGhost />
-              Snapchat
-            </a>
-
           </div>
         </motion.div>
 
-        {/* 💬 MESSAGE FORM */}
+        {/* MESSAGE FORM */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -146,9 +141,9 @@ export default function Footer({ theme }) {
 
       </div>
 
-      {/* 🔻 Bottom Text */}
+      {/* Bottom Text */}
       <div className={`text-center mt-16 text-sm ${secondaryText}`}>
-        © {new Date().getFullYear()} Your Name. All rights reserved.
+        &copy; {new Date().getFullYear()} Jumana. All rights reserved.
       </div>
     </footer>
   );

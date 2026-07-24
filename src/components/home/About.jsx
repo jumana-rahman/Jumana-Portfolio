@@ -14,7 +14,6 @@ export default function About({ theme }) {
       : "bg-slate-200 text-slate-900"
       }`}
     >
-      {/* 💜 LEFT GLOW BACKGROUND */}
       <div className="absolute w-100 h-100 bg-purple-600/20 rounded-full blur-3xl top-1/2 left-10 -translate-y-1/2 animate-pulse"></div>
 
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 z-10">
@@ -35,14 +34,27 @@ export default function About({ theme }) {
           <p className={`${secondaryText} mt-6 leading-relaxed`}>
             I am a passionate MERN Stack Developer who enjoys building modern,
             responsive and user-friendly web applications. I focus on clean UI,
-            smooth experience, and performance.
+            smooth experience, and performance. My journey into programming
+            started with curiosity about how websites work, and it quickly turned
+            into a deep love for turning ideas into real products.
           </p>
 
           <p className={`${secondaryText} mt-4 leading-relaxed`}>
-            I love turning ideas into real-world projects using modern web technologies.
+            I enjoy working on frontend development the most, where I can bring
+            designs to life with React, Next.js, and Tailwind CSS. I also have
+            hands-on experience with backend technologies like Node.js, Express,
+            and MongoDB, which gives me a solid understanding of the full
+            development cycle.
           </p>
 
-          {/* SKILLS */}
+          <p className={`${secondaryText} mt-4 leading-relaxed`}>
+            Outside of programming, I love exploring new technologies,
+            watching tech talks, and continuously challenging myself to learn
+            something new every day. I believe in writing clean code and
+            building products that make a difference.
+          </p>
+
+          {/* SKILLS TAGS */}
           <div className="mt-6 flex flex-wrap gap-3">
             {["React", "Tailwind", "JavaScript", "UI Design"].map((skill, i) => (
               <span
