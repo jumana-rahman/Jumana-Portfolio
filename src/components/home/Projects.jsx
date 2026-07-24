@@ -51,10 +51,10 @@ export default function Projects({ theme }) {
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
+      ? [...projects].reverse()
       : projects.filter(
           (project) => project.category === activeCategory
-        );
+        ).reverse();
 
   return (
     <section
