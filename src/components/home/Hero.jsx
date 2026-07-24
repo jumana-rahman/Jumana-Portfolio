@@ -19,33 +19,6 @@ export default function Hero({ theme }) {
 
       <div className="max-w-6xl w-full mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 lg:gap-12 z-10">
 
-        {/* Social Links - Vertical (desktop only) */}
-        <div className={`hidden lg:flex flex-col items-center gap-4 py-6 px-3 rounded-2xl border backdrop-blur-md ${
-          theme === "dark"
-            ? "border-purple-500/20 bg-black/40"
-            : "border-purple-300/40 bg-white/50"
-        }`}>
-          <a
-            href="https://github.com/jumana-rahman"
-            target="_blank"
-            rel="noreferrer"
-            className="text-purple-400 hover:scale-125 hover:drop-shadow-[0_0_10px_#a855f7] transition duration-300"
-          >
-            <FaGithub size={22} />
-          </a>
-
-          <div className="w-px h-10 bg-purple-500/40"></div>
-
-          <a
-            href="https://linkedin.com/in/jumana-bint-rahman"
-            target="_blank"
-            rel="noreferrer"
-            className="text-purple-400 hover:scale-125 hover:drop-shadow-[0_0_10px_#a855f7] transition duration-300"
-          >
-            <FaLinkedin size={22} />
-          </a>
-        </div>
-
         {/* LEFT SIDE - TEXT CONTENT */}
         <motion.div
           initial={{ x: -50, opacity: 0 }}
@@ -149,6 +122,34 @@ export default function Hero({ theme }) {
 
           </div>
         </motion.div>
+
+        {/* Social Links - Vertical (desktop only) */}
+        <div className={`hidden lg:flex flex-col items-center gap-4 py-6 px-3 rounded-2xl border backdrop-blur-md ${
+          theme === "dark"
+            ? "border-purple-500/20 bg-black/40"
+            : "border-purple-300/40 bg-white/50"
+        }`}>
+          <a
+            href="https://github.com/jumana-rahman"
+            target="_blank"
+            rel="noreferrer"
+            className="text-purple-400 hover:scale-125 hover:drop-shadow-[0_0_10px_#a855f7] transition duration-300"
+          >
+            <FaGithub size={22} />
+          </a>
+
+          <div className="w-px h-10 bg-purple-500/40"></div>
+
+          <a
+            href="https://linkedin.com/in/jumana-bint-rahman"
+            target="_blank"
+            rel="noreferrer"
+            className="text-purple-400 hover:scale-125 hover:drop-shadow-[0_0_10px_#a855f7] transition duration-300"
+          >
+            <FaLinkedin size={22} />
+          </a>
+        </div>
+
       </div>
     </section>
   );
