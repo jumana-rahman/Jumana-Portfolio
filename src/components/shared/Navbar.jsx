@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar({ theme, setTheme }) {
   const [open, setOpen] = useState(false);
@@ -117,30 +118,38 @@ export default function Navbar({ theme, setTheme }) {
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div
-          className={`md:hidden flex flex-col items-center gap-4 pb-6 transition ${
-            theme === "dark"
-              ? "bg-black/90 text-gray-300"
-              : "bg-white text-gray-700"
-          }`}
-        >
-          {navLinks.map((link, i) => (
-            <a
-              key={i}
-              href={link.href}
-              className={`hover:text-purple-400 ${
-                active === link.name.toLowerCase()
-                  ? "text-purple-400 font-semibold"
-                  : ""
-              }`}
-              onClick={() => setOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className={`md:hidden flex flex-col items-center gap-4 overflow-hidden ${
+              theme === "dark"
+                ? "bg-black/90 text-gray-300"
+                : "bg-white text-gray-700"
+            }`}
+          >
+            <div className="flex flex-col items-center gap-4 py-6">
+              {navLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  className={`hover:text-purple-400 transition ${
+                    active === link.name.toLowerCase()
+                      ? "text-purple-400 font-semibold"
+                      : ""
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
