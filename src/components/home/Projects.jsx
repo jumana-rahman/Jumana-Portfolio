@@ -18,8 +18,9 @@ import {
   SiFigma,
   SiJavascript,
   SiTypescript,
-  SiGoogle,
 } from "react-icons/si";
+
+import { RiGeminiFill } from "react-icons/ri";
 
 import projects from "../../data/projects";
 
@@ -34,7 +35,7 @@ const techIconMap = {
   "Express.js": <SiExpress />,
   "MongoDB": <SiMongodb />,
   "Figma": <SiFigma />,
-  "Google Gemini AI": <SiGoogle />,
+  "Google Gemini AI": <RiGeminiFill />,
 };
 
 export default function Projects({ theme }) {
