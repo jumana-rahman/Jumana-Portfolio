@@ -141,7 +141,14 @@ export default function Navbar({ theme, setTheme }) {
                       ? "text-purple-400 font-semibold"
                       : ""
                   }`}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.href);
+                    if (target) {
+                      target.scrollIntoView({ behavior: "smooth" });
+                    }
+                    setOpen(false);
+                  }}
                 >
                   {link.name}
                 </a>
