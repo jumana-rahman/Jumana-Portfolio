@@ -114,11 +114,10 @@ export default function Projects({ theme }) {
 
           {filteredProjects.map((project, i) => (
             <motion.div
-              key={i}
+              key={project.id}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.12 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.12 }}
               className={`${cardBg} border ${cardBorder} rounded-2xl overflow-hidden backdrop-blur-md hover:-translate-y-2 hover:shadow-[0_0_35px_#a855f7] transition duration-300`}
             >
               {/* PROJECT IMAGE */}
