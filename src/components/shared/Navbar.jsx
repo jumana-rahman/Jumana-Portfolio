@@ -125,7 +125,7 @@ export default function Navbar({ theme, setTheme }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={`md:hidden flex flex-col items-center gap-4 overflow-hidden ${
+            className={`md:hidden flex flex-col items-center gap-4 ${
               theme === "dark"
                 ? "bg-black/90 text-gray-300"
                 : "bg-white text-gray-700"
