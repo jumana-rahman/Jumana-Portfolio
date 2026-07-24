@@ -145,7 +145,8 @@ export default function Navbar({ theme, setTheme }) {
                     e.preventDefault();
                     const target = document.querySelector(link.href);
                     if (target) {
-                      target.scrollIntoView({ behavior: "smooth" });
+                      const y = target.getBoundingClientRect().top + window.scrollY - 80;
+                      window.scrollTo({ top: y, behavior: "smooth" });
                     }
                     setOpen(false);
                   }}
