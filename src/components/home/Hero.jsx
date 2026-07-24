@@ -34,7 +34,7 @@ export default function Hero({ theme }) {
                     <Typewriter
                     words={[
                         "Jumana",
-                        "MERN Stack Developer",
+                        "Web Developer",
                         "UI Designer",
                     ]}
                     loop={0}
