@@ -16,6 +16,8 @@ import {
   SiExpress,
   SiFigma,
   SiJavascript,
+  SiTypescript,
+  SiGoogle,
 } from "react-icons/si";
 
 import projects from "../../data/projects";
@@ -24,12 +26,14 @@ const techIconMap = {
   "HTML5": <FaHtml5 />,
   "Tailwind CSS": <SiTailwindcss />,
   "JavaScript": <SiJavascript />,
+  "TypeScript": <SiTypescript />,
   "React JS": <FaReact />,
   "Next.js": <SiNextdotjs />,
   "Node.js": <FaNodeJs />,
   "Express.js": <SiExpress />,
   "MongoDB": <SiMongodb />,
   "Figma": <SiFigma />,
+  "Google Gemini AI": <SiGoogle />,
 };
 
 export default function ProjectDetail() {

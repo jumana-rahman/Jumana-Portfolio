@@ -65,14 +65,50 @@ const projects = [
     category: "Frontend Development",
     image: "/projects/project5.png",
     description:
-      "A modern Next.js application that helps users track friendships, monitor interactions, and stay connected through meaningful communication.",
-    tech: ["Next.js", "Tailwind CSS"],
-    live: "https://keenkeeper007.vercel.app/",
-    github: "https://github.com/jumana-rahman/A07-Keen-Keeper",
+      "A full-stack event management platform where users can explore events, create and manage their own events, and register for upcoming activities with secure authentication.",
+    tech: ["Next.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    live: "https://event-explorer-client.vercel.app",
+    github: "https://github.com/jumana-rahman/Event-Explorer-Client",
     challenges:
       "Learning and implementing Next.js features like server-side rendering and dynamic routing while designing an intuitive user experience.",
     improvements:
       "Add notification system, calendar integration for tracking interactions, and social media linking features.",
+  },
+  {
+    id: "eventexplorer",
+    title: "EventExplorer",
+    category: "Full Stack Development",
+    image: "/projects/project6.png",
+    description:
+      "A modern Next.js application that helps users track friendships, monitor interactions, and stay connected through meaningful communication.",
+    tech: ["React JS", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    live: "https://keenkeeper007.vercel.app/",
+    github: "https://github.com/jumana-rahman/A07-Keen-Keeper",
+    challenges:
+      "Building secure authentication, implementing event management features, and handling role-based permissions while maintaining a responsive interface.",
+    improvements:
+      "Add event recommendations, ticket booking, calendar synchronization, and real-time chat between organizers and attendees.",
+  },
+  {
+    id: "museoai",
+    title: "MuseoAI",
+    category: "Full Stack Development",
+    image: "/projects/project7.png",
+    description:
+      "An AI-powered museum platform that lets users explore museums, chat with an AI assistant, and generate personalized museum guides using Google Gemini AI.",
+    tech: ["React.js",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Tailwind CSS",
+    "Google Gemini AI"],
+    live: "https://museo-ai-client.vercel.app",
+    github: "https://github.com/jumana-rahman/MuseoAI-Client",
+    challenges:
+      "Integrating AI-powered features, generating structured museum guides, and managing AI responses while maintaining a smooth user experience.",
+    improvements:
+      "Add multilingual AI support, personalized recommendations based on user interests, voice interaction, and collaborative guide sharing.",
   },
 ];
 
