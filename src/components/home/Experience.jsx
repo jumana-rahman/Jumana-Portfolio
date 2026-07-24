@@ -64,7 +64,7 @@ export default function Experience({ theme }) {
             </div>
 
             <p className={`${secondaryText} leading-relaxed mb-4`}>
-              I am a motivated Computer Science student with hands-on experience
+              I am a motivated Computer Science and Engineering student with hands-on experience
               in the MERN stack, Next.js, and modern web technologies. Through
               academic projects and personal builds, I have developed strong
               skills in frontend development, UI/UX design, and full-stack
