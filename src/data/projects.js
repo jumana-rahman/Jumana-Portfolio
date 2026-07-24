@@ -45,6 +45,21 @@ const projects = [
       "Add smooth scroll animations, dark mode toggle, and optimize for Core Web Vitals and accessibility.",
   },
   {
+    id: "keenkeeper",
+    title: "KeenKeeper",
+    category: "Frontend Development",
+    image: "/projects/project5.png",
+    description:
+      "A modern Next.js application that helps users track friendships, monitor interactions, and stay connected through meaningful communication.",
+    tech: ["Next.js", "MongoDB", "Tailwind CSS"],
+    live: "https://keenkeeper007.vercel.app",
+    github: "https://github.com/jumana-rahman/A07-Keen-Keeper",
+    challenges:
+      "Learning and implementing Next.js features like server-side rendering and dynamic routing while designing an intuitive user experience.",
+    improvements:
+      "Add notification system, calendar integration for tracking interactions, and social media linking features.",
+  },
+  {
     id: "drivefleet",
     title: "DriveFleet",
     category: "Full Stack Development",
@@ -52,7 +67,7 @@ const projects = [
     description:
       "A full-stack task management application with CRUD operations and authentication system.",
     tech: ["Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
-    live: "https://a09-drive-fleet-client.vercel.app/",
+    live: "https://a09-drive-fleet-client.vercel.app",
     github: "https://github.com/jumana-rahman/A09-DriveFleet-Client",
     challenges:
       "Implementing secure authentication, managing CRUD operations across frontend and backend, and handling data validation and error states.",
@@ -60,30 +75,15 @@ const projects = [
       "Add role-based access control, file upload support, dashboard analytics, and deployment optimization.",
   },
   {
-    id: "keenkeeper",
-    title: "KeenKeeper",
-    category: "Frontend Development",
-    image: "/projects/project5.png",
-    description:
-      "A full-stack event management platform where users can explore events, create and manage their own events, and register for upcoming activities with secure authentication.",
-    tech: ["Next.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    live: "https://event-explorer-client.vercel.app",
-    github: "https://github.com/jumana-rahman/Event-Explorer-Client",
-    challenges:
-      "Learning and implementing Next.js features like server-side rendering and dynamic routing while designing an intuitive user experience.",
-    improvements:
-      "Add notification system, calendar integration for tracking interactions, and social media linking features.",
-  },
-  {
     id: "eventexplorer",
     title: "EventExplorer",
     category: "Full Stack Development",
     image: "/projects/project6.png",
     description:
-      "A modern Next.js application that helps users track friendships, monitor interactions, and stay connected through meaningful communication.",
+      "A full-stack event discovery and management platform where users can browse, create, and manage events with secure authentication.",
     tech: ["React JS", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    live: "https://keenkeeper007.vercel.app/",
-    github: "https://github.com/jumana-rahman/A07-Keen-Keeper",
+    live: "https://event-explorer-client.vercel.app",
+    github: "https://github.com/jumana-rahman/Event-Explorer-Client",
     challenges:
       "Building secure authentication, implementing event management features, and handling role-based permissions while maintaining a responsive interface.",
     improvements:
